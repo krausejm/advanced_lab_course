@@ -8,4 +8,4 @@ We will perform the following experiments
 4. [K221 - Mößbauer-effect](https://github.com/krausejm/advanced_lab_course/)
 5. [A246 - Laser spectroscopy](https://github.com/krausejm/advanced_lab_course/)
 
-there will be one folder for each experiment, containing the lab report and ``python/root``-scripts used for data analysis. In addition there will be the lab instructions and supplementary material.
+there will be one folder for each experiment, containing the lab report and ``python/root``-scripts used for data analysis.
