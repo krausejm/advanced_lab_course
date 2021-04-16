@@ -4,7 +4,7 @@ We will perform the following experiments
 
 1. [E214 - ATLAS](https://github.com/krausejm/advanced_lab_course/tree/main/ATLAS)
 2. [E207 - Linear Accelerator Bonn (LAB)](https://github.com/krausejm/advanced_lab_course/tree/main/LAB)
-3. [K223 - Nuclear gamma-gamma-Correlations](https://github.com/krausejm/advanced_lab_course/)
+3. [K223 - Nuclear gamma-gamma-Correlations](https://github.com/krausejm/advanced_lab_course/tree/main/K223)
 4. [A246 - Laser spectroscopy](https://github.com/krausejm/advanced_lab_course/) 
 5. [K221 - Mößbauer-effect](https://github.com/krausejm/advanced_lab_course/)
 
