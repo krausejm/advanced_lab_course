@@ -1,0 +1,15 @@
+import ROOT as r 
+import numpy as np
+c=r.TCanvas()
+c.SetGrid()
+data=np.genfromtxt("qe.txt",delimiter="\t")
+x=np.array(data[1:,0])
+y=np.array(data[1:,1])
+n=len(x)
+g=r.TGraph(n,x,y)
+g.Draw("AP")
+g.SetMarkerStyle(21)
+g.SetMarkerSize(5)
+g.GetXaxis().SetTitle("Current / mA")
+g.GetYaxis().SetTitle("Q.E.")
+g.GetYaxis().SetMaxDigits(2)
