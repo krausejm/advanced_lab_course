@@ -1,0 +1,166 @@
+% Einige KOMA-Script-Optionen
+\KOMAoptions{fontsize=12pt, paper=a4}     % Schriftgröße und Papierformat setzen
+\KOMAoptions{DIV=11}                      % Parameter mit dem man den Seitenrand ändern kann
+\KOMAoptions{listof=totoc}                % um die Abbildungs- und Tabellenverzeichnisse im Inhaltsverzeichnis aufzuführen
+\setkomafont{disposition}{\rmfamily\bfseries\upshape}%serif  font in headings
+\usepackage{geometry}
+\usepackage{epigraph}
+\usepackage{dirtytalk}
+\newgeometry{
+	left=2cm,
+	right=2.cm,
+	bottom=3cm,
+	top=3cm
+}
+% Hier werden einige Pakete eingebunden
+\usepackage{physics}
+\usepackage[utf8]{inputenc}               % Direkte Eingabe von ä usw.
+\usepackage[T1]{fontenc}                  % Font Kodierung für die Ausgabe
+\usepackage[UKenglish]{babel}                        % Verschiedenste sprach-spezifische Extras
+\usepackage[autostyle=true]{csquotes}     % Intelligente Anführungszeichen
+\usepackage{txfonts}                % Schönere Schriftart
+\usepackage{graphicx}                     % Packet um Grafiken einzufügen
+\usepackage[separate-uncertainty=true]{siunitx}                      % Intelligentes Setzen von Zahlen und Einheiten
+\sisetup{locale = US}                     % Deutsch als locale für die Zahlen und Einheiten
+\usepackage{enumitem}                     % Um eine Nummerierung mit Buchstaben innerhalb einer EnumerateUmgebung zu ermöglichen
+%\graphicspath{{figs/}}                    % Grafigverzeichniss festlegen
+\RequirePackage[backend=biber, style=numeric]{biblatex} %Biber ist ein neues Literaturzitat-Modul, welches mit Sonderzeichen (z.B. deutschen Umlauten) direkt zurecht kommt
+\RequirePackage{hyperref}                 % Um anklickbare elemente zu erzeugen
+\RequirePackage[all]{hypcap}              % Verweise auf Abbildungen werden besser gesetzt
+\RequirePackage{listings}
+\usepackage{hhline}
+\usepackage{float}
+\usepackage{floatflt}
+\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage{braket}
+\usepackage{tocloft}
+\usepackage{csvsimple}
+\usepackage{booktabs}
+\usepackage{authblk}
+\renewcommand\Affilfont{\fontsize{13}{13}\selectfont}
+\usepackage{wrapfig}
+\lstset{
+	basicstyle=\ttfamily,
+	literate={~} {$\sim$}{1} % set tilde as a literal
+	{ö}{{\"o}}1
+	{ä}{{\"a}}1
+	{ü}{{\"u}}1
+	{ß}{{\ss}}1
+	{Ö}{{\"O}}1
+	{Ä}{{\"A}}1
+	{Ü}{{\"U}}1
+}
+
+\lstset{
+	% Keine besondere Markierung für Leerzeichen in Codes
+	showspaces=false,
+	showstringspaces=false,
+	% Farebn für Code-Kommentare und Schlüsselworte:
+	commentstyle=\color{red},       % comment style
+	keywordstyle=\color{blue},      % keyword style
+}
+
+%verhindert einrückung bei neuem Absatz
+\setlength{\parindent}{5pt}
+\setlength{\parskip}{3pt}
+
+
+%titelseite mit Bild
+\newcommand{\titlepic}[1]{
+	\def\@titlepic{#1}}
+
+\newcommand{\titlewithpic}{\begin{titlepage}
+\KOMAoptions{twoside = false}
+\begin{centering}
+	\topskip0pt
+	\vspace*{\fill}
+	{{{\fontfamily{phv}\textbf{{\huge \@title}\\
+	\vspace{0.4cm}
+	\@subtitle}}}\\
+	\vspace{1cm}
+	\@author\\
+	\vspace{1cm}
+	\@date\\}
+	\vspace{2cm}
+	\large
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=\textwidth]{\@titlepic}
+		\caption*{}
+	\end{figure}
+	\vspace*{\fill}
+\end{centering}
+\KOMAoptions{twoside}
+\end{titlepage}}
+
+\newcommand{\el}{\newline\newline}
+\newcommand{\pardiv}[2]{\frac{\partial#1}{\partial#2}}
+\newcommand{\ddiv}[2]{\frac{\text{d}#1}{\text{d}#2}}
+\newcommand{\nPsi}{\Psi}
+\renewcommand{\Psi}{\varPsi}
+\newcommand{\rr}{\textbf{r}}
+\newcommand{\xx}{\textbf{x}}
+\newcommand{\p}{\textbf{p}}
+\renewcommand{\i}{\mathrm{i}}
+\newcommand\xrowht[2][0]{\addstackgap[.5\dimexpr#2\relax]{\vphantom{#1}}}
+\newcommand{\zs}[3]{$|#1\,#2\,#3\rangle$}
+\renewcommand{\d}{\text{d}}
+\newcommand{\wkeit}{Wahrscheinlichkeit}
+\newcommand{\expe}{\text{e}}
+\renewcommand{\grad}{$^\circ\,\,$}
+%\newcommand{\aufgabe}[2]{
+%	\vspace{0.5cm}
+%	\textit{\textbf{Aufgabe #1:} #2\vspace{0.2cm}}\\
+%}
+\newcounter{Vaufgabe}
+\setcounter{Vaufgabe}{1}
+\renewcommand{\theVaufgabe}{\Alph{Vaufgabe}}
+\newcommand{\aufgabe}[1]{
+	\subsubsection*{Aufgabe \theVaufgabe: {\normalfont #1}}
+	\stepcounter{Vaufgabe}
+}
+\newcommand{\versuch}[2]{\part*{\LARGE{Versuch #1: #2}}}
+
+\newcommand{\image}[3]{
+	\begin{figure}[htp!]
+		\centering
+		\includegraphics[width=#2\linewidth]{#1.png}
+		\caption{#3}\label{#1}
+	\end{figure}
+}
+
+\newcommand{\batmanPic}[1]{
+ \begin{tikzpicture}[baseline=0em, scale=#1]
+  \draw[fill,black]   (-0.25,1.48) .. controls (-0.1,1.5) and (0.1,1.5) .. (0.25,1.48) -- (0.35,1.92) .. controls (0.425,1.8) and (0.41,1.3) .. (0.45,1.2) .. controls (0.6,1.05) and (1.96,1.05) .. (1.98,2.08) -- (5.93,2.08) .. controls (4.2,1.45) and (4,0.3) .. (4.2,-0.28) .. controls (2.4,-0.09) and (0.4,-0.5) .. (0,-2.052) .. controls (-0.4,-0.5) and (-2.4,-0.09) .. (-4.2,-0.28) .. controls (-4,0.3) and (-4.2,1.45) .. (-5.93,2.08) -- (-1.98,2.08) .. controls (-1.96,1.05) and (-0.6,1.05) .. (-0.45,1.2) .. controls (-0.41,1.3) and (-0.425,1.8) .. (-0.35,1.92) -- (-0.25,1.48);
+ \end{tikzpicture}
+} % End of \batman command
+
+\newcommand{\batman}{\batmanPic{0.05}}
+\newcommand{\Batman}{\batmanPic{0.5}}
+\newcommand{\BATMAN}{\batmanPic{1}}
+\usepackage{pdfpages}
+\usepackage{colortbl}
+\usepackage{bm}
+\usepackage{wrapfig}
+\usepackage{svg}
+\usepackage{subcaption}
+\usepackage{pgfplots}
+\usepackage[labelfont=bf]{caption}
+%\captionsetup[figure]{name=Abb.}
+\usepackage{multicol}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE,RO]{\textsc{Dominic Schüchter, Jakob Krause}}
+\fancyhead[RE,LO]{\nouppercase{\leftmark}}
+%\fancyfoot[CE,CO]{\name}
+\fancyfoot[CE,CO]{--- {\thepage\phantom{ }/ \pageref*{LastPage}} ---}
+
+%\usepackage{titling}
+\usepackage{abstract}
+\usepackage{fontawesome5}
+
+\usepackage{subcaption}
+
